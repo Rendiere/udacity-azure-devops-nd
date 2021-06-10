@@ -1,0 +1,7 @@
+*.DS_Store
+*.DS_Store?
+*.env
+projects/1-deploy-a-web-server/packer/tmp_server.json
+*.terraform*
+*.tfstate*
+hello-worlds
