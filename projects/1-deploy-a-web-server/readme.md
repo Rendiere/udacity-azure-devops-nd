@@ -2,27 +2,17 @@
 # Udacity Azure DevOps Nanodegree - Project 1: Deploy a Web Server in Azure
 
 
-# To-Do List:
-
-- NSGs in loop/list
-- Set max count to 5
--
-
-
 ## Introduction
-_Keep it short - one or two liners at most_.
 
 In this project, the aim is to deploy a web server on Azure through _Infrastructure as Code_ by using Terraform and Packer. 
 
 ## Getting Started
-_What you need to do before you even get ready to build the code."_
 
 For this project to run, you will need an Azure account with a valid subscription. 
 
 Once you have signed up for Azure, you can go ahead and clone this repo and continue with this setup guid. 
 
 ## Dependencies
-_List the things that the building of the actual software is dependent on_. These are your required libraries or software._
 
 Before going through the instructions, make sure you have the completed the following:
 1. Installed the Azure CLI on your machine
@@ -32,8 +22,8 @@ Before going through the instructions, make sure you have the completed the foll
 5. Create an Azure Resource Group for this project by running `az group create --location uksouth --resource-group udacity-project-1`
 
 ## Instructions
-_Once all the dependencies are satisfied, follow these instructions to replicate the solution._
 
+Follow these instructions step-by-step to replicate my solution.
 
 ### Create the Policy Definition
 
@@ -90,7 +80,6 @@ az image list
 terraform init
 ```
 
-
 #### Import existing resource group
 
 Because we are using packer for the VM image, we needed to create the resource group first and deploy the image to that resource group. Terraform needs to know about existing resources in order to determine which resources to create/alter/destroy. So, we need to import the existing resource group into the Terraform state by running:
@@ -126,9 +115,16 @@ terraform destroy
 ```
 
 
+### Run it all automated
+
+I've included a script to run all the steps above sequentially. To execute it, run:
+
+```
+sh run.sh
+```
+
 
 ## Output
-_Show the reader what the expected result will look like when they've successfully followed the instructions._
 
 
 ### Policy
@@ -139,9 +135,13 @@ After completing the policy assign you should see the following output:
 
 ### Packer Image
 
+You should see an Azure image called `MyPackerImage` in the `udacity-project-1` Resource Group. 
 
 ### Terraform
 
+Here is a screenshot of the resources that should have been deployed:
+
+![Complete](Complete.png)
 
 ## Notes
 
