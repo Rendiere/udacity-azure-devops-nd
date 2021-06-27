@@ -42,10 +42,3 @@ jobs:
       - name: 'Test with pytest'
         run: |
           make test
-
-
-
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: cd projects/2-ci-cd && make hello
