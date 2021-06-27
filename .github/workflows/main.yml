@@ -19,26 +19,31 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    env:
+      working-dir: projects/2-ci-cd
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+
       - name: 'Setup Python'
         uses: 'actions/setup-python@v1'
         with: 
           python-version: 3.5
-      - name: 'Change Dir'
-        run: cd projects/2-ci-cd
       - name: 'Install dependencies'
         run: |
           make install
+        working-directory: ${{env.working_dir}}
       - name: 'Lint with pylint'
         run: |
           make lint
+        working-directory: ${{env.working_dir}}
       - name: 'Test with pytest'
         run: |
           make test
+        working-directory: ${{env.working_dir}}
 
 
 
